@@ -1,71 +1,84 @@
-# Converza AI — Landing (React + Vite)
+# Converza AI — Landing Page
 
-Landing page de Converza AI portada a React con Vite. Componentes pequeños, CSS global con variables, listo para producción.
+Landing page comercial de **Converza AI**, un agente conversacional que se conecta a APIs de clientes (bancos, hoteles, restaurantes, telcos, retail, salud, etc.) para resolver consultas en tiempo real.
 
 ## Stack
 
-- **React 18**
-- **Vite 5** (dev server + build)
-- CSS plano con variables (sin Tailwind / sin libs de estilos)
-- Fuentes: Inter, Inter Tight, JetBrains Mono (vía Google Fonts)
+- **React 18** + **Vite 5**
+- **react-router-dom** — routing para `/login` y `/registro`
+- CSS plano con variables (sin Tailwind, sin libs de UI)
+- Fuentes: Inter, Inter Tight, JetBrains Mono (Google Fonts)
 
 ## Estructura
 
 ```
-converza-react/
-├── index.html              # entry HTML (fuentes + #root)
-├── package.json
-├── vite.config.js
-├── public/
-│   └── favicon.svg
-└── src/
-    ├── main.jsx            # bootstrap React
-    ├── App.jsx             # compone las secciones
-    ├── styles/
-    │   └── global.css      # variables + estilos de todas las secciones
-    └── components/
-        ├── Logo.jsx
-        ├── Nav.jsx
-        ├── Hero.jsx
-        ├── Marquee.jsx
-        ├── Capabilities.jsx
-        ├── Showcase.jsx
-        ├── Industries.jsx
-        ├── ApiSection.jsx
-        ├── Process.jsx
-        ├── Pricing.jsx
-        ├── CTA.jsx
-        └── Footer.jsx
+src/
+├── main.jsx
+├── App.jsx                     # rutas + layout
+├── styles/
+│   └── global.css              # tokens :root + estilos globales
+├── context/
+│   └── ModalContext.jsx        # estado del modal de demo
+├── components/
+│   ├── Logo.jsx
+│   ├── Nav.jsx                 # sticky, blur, menú hamburguesa mobile
+│   ├── Hero.jsx
+│   ├── Marquee.jsx
+│   ├── Capabilities.jsx
+│   ├── Showcase.jsx
+│   ├── Industries.jsx
+│   ├── ApiSection.jsx
+│   ├── Process.jsx
+│   ├── Pricing.jsx
+│   ├── CTA.jsx
+│   ├── Footer.jsx
+│   ├── DemoModal.jsx           # modal "Solicitar demo" con formulario
+│   └── icons/
+│       └── ArrowRight.jsx
+└── pages/
+    ├── Login.jsx               # página de inicio de sesión
+    └── Register.jsx            # registro en 2 pasos
 ```
 
 ## Instalación
 
-Requiere Node 18+ (recomendado 20+).
+Requiere Node 18+.
 
 ```bash
 npm install
-npm run dev
+npm run dev      # localhost:5173
 ```
-
-Abre http://localhost:5173
 
 ## Build de producción
 
 ```bash
-npm run build       # genera /dist
-npm run preview     # sirve el build localmente
+npm run build    # genera /dist
+npm run preview  # sirve el build localmente
 ```
 
-El contenido de `dist/` es estático: puedes subirlo a Vercel, Netlify, Cloudflare Pages, S3+CloudFront, GitHub Pages, etc.
+El contenido de `dist/` es estático — se puede subir a Vercel, Netlify, Cloudflare Pages, GitHub Pages, etc.
+
+## Rutas
+
+| Ruta | Descripción |
+|---|---|
+| `/` | Landing page principal |
+| `/login` | Inicio de sesión |
+| `/registro` | Registro en 2 pasos (datos personales + empresa) |
 
 ## Personalización rápida
 
-- **Colores y tipografía** → `src/styles/global.css`, bloque `:root`.
-- **Copy** → arrays `CAPS`, `INDUSTRIES`, `STEPS`, `PLANS` en cada componente.
-- **Logo** → `src/components/Logo.jsx` (SVG inline).
+- **Colores** → `src/styles/global.css`, bloque `:root`
+- **Copy** → arrays `CAPS`, `INDUSTRIES`, `STEPS`, `PLANS` en cada componente
+- **Logo** → `src/components/Logo.jsx` (SVG inline, acepta prop `size`)
 
-## Notas
+## Pendientes
 
-- No usa router; es una sola página con anclas (`#capacidades`, `#funciona`, `#precios`).
-- No usa estado global; todo es componentes presentacionales.
-- Pensado para que un equipo de desarrollo lo tome como base y le conecte formularios, analítica y CMS.
+Ver [`MEJORAS.md`](./MEJORAS.md) para el listado completo de mejoras implementadas y próximos pasos.
+
+Los más relevantes antes de producción:
+
+- Conectar el formulario de demo a un backend (Resend, Formspree, o endpoint propio)
+- Conectar Login y Registro a autenticación real
+- Reemplazar `og-image.svg` por un PNG 1200×630 y actualizar la URL en `index.html`
+- Configurar dominio y actualizar `og:url` y `link[rel=canonical]`
