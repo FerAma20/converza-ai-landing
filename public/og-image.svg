@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Fondo -->
+  <rect width="1200" height="630" fill="#0A0A0A"/>
+
+  <!-- Grid sutil -->
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Símbolo (arco + punto) -->
+  <g transform="translate(96, 215)">
+    <path d="M 160 60 A 60 60 0 1 0 160 140" stroke="#FAFAFA" stroke-width="14" stroke-linecap="square" fill="none"/>
+    <circle cx="155" cy="100" r="9" fill="#FAFAFA"/>
+  </g>
+
+  <!-- Logotipo texto -->
+  <text x="96" y="410" font-family="'Inter Tight', 'Inter', Arial, sans-serif" font-size="52" font-weight="600" fill="#FAFAFA" letter-spacing="-1.5">Converza</text>
+  <text x="400" y="410" font-family="'Inter Tight', 'Inter', Arial, sans-serif" font-size="52" font-weight="500" fill="rgba(250,250,250,0.4)" letter-spacing="-1.5"> AI</text>
+
+  <!-- Tagline -->
+  <text x="96" y="468" font-family="'Inter', Arial, sans-serif" font-size="26" font-weight="400" fill="rgba(250,250,250,0.5)" letter-spacing="0">Conversaciones que resuelven.</text>
+
+  <!-- Separador -->
+  <rect x="96" y="510" width="60" height="2" fill="rgba(250,250,250,0.15)" rx="1"/>
+
+  <!-- Stats -->
+  <text x="96" y="555" font-family="'Inter Tight', 'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="rgba(250,250,250,0.35)" letter-spacing="0.5">87% resolución autónoma · &lt; 2s respuesta · 12+ industrias</text>
+
+  <!-- Punto verde decorativo -->
+  <circle cx="1104" cy="315" r="6" fill="#5cd47e"/>
+  <text x="1104" y="340" font-family="'Inter', Arial, sans-serif" font-size="12" fill="rgba(250,250,250,0.3)" text-anchor="middle" letter-spacing="1">EN LÍNEA</text>
+</svg>
